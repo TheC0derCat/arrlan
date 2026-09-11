@@ -5,6 +5,8 @@ fn main() {
     println!("Hello, world!");
     let a: Matrix = Matrix::new(vec![5, 5, 3]);
     let b: Matrix = Matrix::new(vec![2, 2, 2]);
-    let c: Matrix = a + b;
+    let c: Matrix = a - b;
     println!("{:?}", c);
+    println!("sum: {}", c.sum());
+    println!("product: {}", c.product());
 }
