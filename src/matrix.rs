@@ -10,15 +10,26 @@ pub struct Matrix {
     dimensions: Vec<usize>,
 }
 impl Matrix {
-    pub fn new(list: Vec<i64>) -> Self {
-        Self {
-            list: list,
-            dimensions: Vec::new(),
+    pub fn new(list: Vec<i64>, dimensions: Vec<usize>) -> Option<Self> {
+        if list.len() == dimensions.iter().product(){
+            Some(Self {
+                list: list,
+                dimensions: dimensions,
+            })
+        } else {
+            None
         }
     }
     pub fn len(&self) -> usize {
         self.list.len()
     }
+    pub fn sort(&self) -> Self {
+        let mut sorted: Vec<i64> = self.list.clone();
+        sorted.sort();
+        Matrix {
+            list: sorted,
+            dimensions: self.dimensions.clone(),
+        }    }
     pub fn sum(&self) -> i64 {
         self.list.iter().sum()
     }
